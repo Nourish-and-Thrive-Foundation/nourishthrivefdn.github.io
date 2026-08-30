@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nourish and Thrive Foundation | Educate · Empower · Nourish Communities</title>
+<meta name="description" content="Nourish and Thrive Foundation expands access to practical, culturally responsive nutrition education that helps communities build knowledge, confidence, and well-being.">
+<meta property="og:title" content="Nourish and Thrive Foundation">
+<meta property="og:description" content="Practical, culturally responsive nutrition education that helps communities build knowledge, confidence, and well-being.">
+<meta property="og:image" content="assets/logo.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#244C28">
+<link rel="icon" href="assets/logo.webp" type="image/webp">
+<style>
+
+  /* ============ Brand tokens ============ */
+  :root{
+    --ivory: #FBF9E6;
+    --ivory-deep: #F3EFD6;
+    --forest: #244C28;
+    --deep: #173216;
+    --leaf: #4D702C;
+    --sprout: #698B30;
+    --gold: #C8A74D;
+    --carrot: #C24B1E;
+    --grape: #785A98;
+    --white: #FFFFFF;
+
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: Aptos, Arial, Helvetica, sans-serif;
+
+    --max: 1180px;
+    --radius: 22px;
+    --radius-sm: 12px;
+    --shadow: 0 18px 40px -20px rgba(23, 50, 22, 0.35);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--ivory);
+    color: var(--deep);
+    font-family: var(--font-body);
+    font-size: 16.5px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img{ max-width:100%; display:block; }
+
+  h1,h2,h3,h4{
+    font-family: var(--font-display);
+    color: var(--deep);
+    margin: 0 0 .5em 0;
+    line-height: 1.15;
+    font-weight: 700;
+  }
+
+  p{ margin: 0 0 1em 0; }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  .eyebrow{
+    font-family: var(--font-body);
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    font-size: .78rem;
+    color: var(--leaf);
+  }
+
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: .98rem;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+  }
+  .btn:focus-visible{ outline: 3px solid var(--gold); outline-offset: 3px; }
+
+  .btn-primary{
+    background: var(--forest);
+    color: var(--ivory);
+  }
+  .btn-primary:hover{
+    background: var(--deep);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+  }
+
+  .btn-ghost{
+    background: transparent;
+    color: var(--deep);
+    border-color: rgba(23,50,22,.25);
+  }
+  .btn-ghost:hover{
+    border-color: var(--forest);
+    background: rgba(36,76,40,.06);
+  }
+
+  .btn-light{
+    background: var(--ivory);
+    color: var(--forest);
+  }
+  .btn-light:hover{
+    background: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px -20px rgba(0,0,0,.4);
+  }
+
+  section{ padding: 96px 0; }
+  @media (max-width: 720px){ section{ padding: 64px 0; } }
+
+  /* ============ Reveal on scroll ============ */
+  .reveal{ opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.is-visible{ opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity: 1; transform: none; transition: none; }
+    html{ scroll-behavior: auto; }
+  }
+
+  /* ============ Nav ============ */
+  header.site-header{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(251,249,230,.92);
+    -webkit-backdrop-filter: saturate(160%) blur(8px);
+    backdrop-filter: saturate(160%) blur(8px);
+    border-bottom: 1px solid rgba(23,50,22,.1);
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 14px 28px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap: 12px;
+    text-decoration:none;
+  }
+  .brand img{
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(23,50,22,.25);
+    flex-shrink:0;
+  }
+  .brand-word{
+    font-family: var(--font-display);
+    line-height: 1.05;
+  }
+  .brand-word strong{
+    display:block;
+    font-size: 1.05rem;
+    color: var(--deep);
+  }
+  .brand-word span{
+    display:block;
+    font-family: var(--font-body);
+    font-size: .62rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--leaf);
+    font-weight:700;
+    margin-top: 2px;
+  }
+
+  nav.primary-nav{
+    display:flex;
+    align-items:center;
+    gap: 30px;
+  }
+  nav.primary-nav a.nav-link{
+    text-decoration:none;
+    color: var(--deep);
+    font-weight: 600;
+    font-size: .95rem;
+    position: relative;
+  }
+  nav.primary-nav a.nav-link::after{
+    content:'';
+    position:absolute;
+    left:0; right:0; bottom:-6px;
+    height:2px;
+    background: var(--sprout);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .2s ease;
+  }
+  nav.primary-nav a.nav-link:hover::after{ transform: scaleX(1); }
+
+  .nav-cta{ display:flex; align-items:center; gap:18px; order: 2; }
+  .nav-toggle{
+    display:none;
+    background:none; border:none; cursor:pointer;
+    padding: 6px;
+    order: 3;
+  }
+  .nav-toggle span{
+    display:block; width:24px; height:2px; background: var(--deep); margin:5px 0; transition: transform .2s ease, opacity .2s ease;
+  }
+
+  @media (max-width: 860px){
+    nav.primary-nav{
+      position: absolute;
+      top: 100%; left:0; right:0;
+      background: var(--ivory);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 22px 28px 28px;
+      border-bottom: 1px solid rgba(23,50,22,.1);
+      display:none;
+    }
+    nav.primary-nav.open{ display:flex; }
+    .nav-cta{ display:none; }
+    .nav-toggle{ display:block; }
+  }
+
+  /* ============ Hero ============ */
+  .hero{
+    padding: 76px 0 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns: 1.05fr .9fr;
+    gap: 56px;
+    align-items:center;
+  }
+  @media (max-width: 900px){
+    .hero .wrap{ grid-template-columns: 1fr; text-align:left; }
+    .hero-art{ order: -1; max-width: 280px; margin: 0 auto 8px; }
+  }
+
+  .hero h1{
+    font-size: clamp(2.1rem, 4.2vw, 3.3rem);
+    max-width: 12ch;
+    margin-top: 14px;
+  }
+  .hero .lede{
+    font-size: 1.15rem;
+    max-width: 46ch;
+    color: var(--deep);
+    opacity: .92;
+  }
+  .hero-actions{
+    display:flex;
+    align-items:center;
+    gap: 22px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  .link-quiet{
+    text-decoration:none;
+    font-weight:700;
+    font-size:.95rem;
+    color: var(--forest);
+    border-bottom: 2px solid var(--sprout);
+    padding-bottom: 2px;
+  }
+
+  .hero-art{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-art .ring{
+    position:absolute;
+    inset: -6%;
+    border-radius:50%;
+    border: 2px dashed rgba(105,139,48,.35);
+    animation: spin 60s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce){ .hero-art .ring{ animation:none; } }
+  @keyframes spin{ to{ transform: rotate(360deg); } }
+  .hero-art img{
+    width: min(78%, 380px);
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ============ Promise band ============ */
+  .promise-band{
+    background: var(--forest);
+    color: var(--ivory);
+    padding: 56px 0;
+  }
+  .promise-band blockquote{
+    margin:0;
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+    line-height: 1.4;
+    max-width: 780px;
+    font-style: italic;
+  }
+  .promise-band .eyebrow{ color: var(--gold); margin-bottom: 14px; display:block; }
+
+  /* ============ Who we are ============ */
+  .about .wrap{
+    display:grid;
+    grid-template-columns: .95fr 1.05fr;
+    gap: 64px;
+    align-items:start;
+  }
+  @media (max-width: 860px){ .about .wrap{ grid-template-columns: 1fr; } }
+
+  .mission-card{
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 34px 36px;
+    box-shadow: var(--shadow);
+    border-left: 6px solid var(--sprout);
+  }
+  .mission-card .label{
+    color: var(--leaf);
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    font-size:.72rem;
+    margin-bottom:10px;
+    display:block;
+  }
+  .mission-card p{
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--deep);
+    margin-bottom: 0;
+  }
+  .vision-line{
+    margin-top: 22px;
+    font-size: .98rem;
+    color: var(--leaf);
+  }
+  .vision-line .label{
+    font-weight:700; color:var(--forest); text-transform:uppercase; letter-spacing:.1em; font-size:.72rem; display:block; margin-bottom:6px;
+  }
+
+  .values-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .pill{
+    background: var(--ivory-deep);
+    border: 1px solid rgba(36,76,40,.18);
+    color: var(--forest);
+    font-weight:700;
+    font-size: .82rem;
+    padding: 8px 16px;
+    border-radius: 999px;
+  }
+
+  /* ============ Pillars ============ */
+  .pillars{ background: var(--white); }
+  .section-head{ max-width: 640px; margin-bottom: 48px; }
+  .section-head h2{ font-size: clamp(1.7rem, 3vw, 2.3rem); }
+
+  .pillar-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 980px){ .pillar-grid{ grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px){ .pillar-grid{ grid-template-columns: 1fr; } }
+
+  .pillar-card{
+    background: var(--ivory);
+    border-radius: var(--radius-sm);
+    padding: 30px 24px;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .pillar-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow); }
+  .pillar-card .icon{
+    width: 52px; height:52px;
+    border-radius:50%;
+    background: var(--forest);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom: 18px;
+  }
+  .pillar-card .icon svg{ width:26px; height:26px; stroke:var(--ivory); fill:none; }
+  .pillar-card h3{ font-size: 1.15rem; margin-bottom: 8px; }
+  .pillar-card p{ font-size: .95rem; margin:0; color: var(--deep); opacity:.85; }
+
+  /* ============ Signature: growing from knowledge ============ */
+  .growth{
+    background: var(--ivory-deep);
+    position: relative;
+  }
+  .growth-steps{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 26px;
+    position: relative;
+    margin-top: 20px;
+  }
+  .growth-steps::before{
+    content:'';
+    position:absolute;
+    top: 40px; left: 12%; right:12%;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, var(--sprout) 0 10px, transparent 10px 18px);
+  }
+  @media (max-width: 800px){
+    .growth-steps{ grid-template-columns: 1fr; gap: 40px; }
+    .growth-steps::before{ display:none; }
+  }
+  .growth-step{ text-align:center; position:relative; }
+  .growth-step .stage{
+    width: 82px; height:82px;
+    border-radius:50%;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    display:flex; align-items:center; justify-content:center;
+    margin: 0 auto 20px;
+    position:relative;
+    z-index:1;
+  }
+  .growth-step .stage svg{ width:38px; height:38px; stroke:var(--forest); fill:none; }
+  .growth-step h4{ font-size:1.1rem; margin-bottom:6px; }
+  .growth-step p{ font-size:.92rem; color:var(--deep); opacity:.8; max-width:26ch; margin:0 auto; }
+
+  .growth-caption{
+    text-align:center;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--leaf);
+    max-width: 640px;
+    margin: 52px auto 0;
+    font-size: 1.05rem;
+  }
+
+  /* ============ Contact ============ */
+  .contact{
+    background: var(--forest);
+    color: var(--ivory);
+  }
+  .contact .wrap{
+    display:grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 56px;
+    align-items:start;
+  }
+  @media (max-width: 900px){ .contact .wrap{ grid-template-columns: 1fr; } }
+
+  .contact h2{ color: var(--ivory); }
+  .contact .eyebrow{ color: var(--gold); }
+  .contact-info{ margin-top: 26px; display:flex; flex-direction:column; gap:16px; }
+  .contact-info div{ display:flex; gap:14px; align-items:flex-start; }
+  .contact-info svg{ width:22px; height:22px; stroke:var(--gold); fill:none; flex-shrink:0; margin-top:2px; }
+  .contact-info strong{ display:block; font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color:var(--sprout); margin-bottom:2px; }
+  .contact-info a{ text-decoration:none; color: var(--ivory); font-weight:600; }
+  .contact-info a:hover{ text-decoration:underline; }
+
+  .contact-card{
+    background: var(--ivory);
+    color: var(--deep);
+    border-radius: var(--radius);
+    padding: 34px;
+    box-shadow: 0 25px 50px -25px rgba(0,0,0,.5);
+  }
+  .field{ margin-bottom: 18px; }
+  .field label{ display:block; font-weight:700; font-size:.85rem; margin-bottom:6px; }
+  .field input, .field textarea{
+    width:100%;
+    font-family: var(--font-body);
+    font-size:1rem;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(23,50,22,.22);
+    background: var(--white);
+    color: var(--deep);
+  }
+  .field input:focus, .field textarea:focus{
+    outline: none;
+    border-color: var(--forest);
+    box-shadow: 0 0 0 3px rgba(105,139,48,.25);
+  }
+  .field textarea{ min-height: 120px; resize: vertical; }
+  .form-note{ font-size:.8rem; color: var(--leaf); margin-top: 6px; }
+
+  /* ============ Footer ============ */
+  footer{
+    background: var(--deep);
+    color: var(--ivory);
+    padding: 48px 0 30px;
+  }
+  .footer-inner{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    flex-wrap: wrap;
+    gap: 24px;
+    border-bottom: 1px solid rgba(251,249,230,.15);
+    padding-bottom: 30px;
+  }
+  .footer-brand{ display:flex; align-items:center; gap:14px; }
+  .footer-brand img{ width:40px; height:40px; border-radius:50%; }
+  .footer-brand strong{ font-family: var(--font-display); display:block; font-size:1rem; }
+  .footer-brand span{ font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color: var(--sprout); }
+  .footer-links{ display:flex; gap:26px; flex-wrap:wrap; }
+  .footer-links a{ text-decoration:none; color: var(--ivory); opacity:.85; font-size:.92rem; }
+  .footer-links a:hover{ opacity:1; text-decoration:underline; }
+  .footer-bottom{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    padding-top: 22px; font-size:.8rem; opacity:.65;
+  }
+
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="#top">
+        <picture>
+          <source srcset="assets/logo.webp" type="image/webp">
+          <img src="assets/logo.png" alt="Nourish and Thrive Foundation logo">
+        </picture>
+        <span class="brand-word"><strong>Nourish and Thrive</strong><span>Foundation</span></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav">
+        <a class="nav-link" href="#about">Our Mission</a>
+        <a class="nav-link" href="#pillars">What We Do</a>
+        <a class="nav-link" href="#growth">Our Approach</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="#contact">Contact Us</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Educate &middot; Empower &middot; Nourish Communities</span>
+          <h1>Knowledge to nourish yourself, your family, your community.</h1>
+          <p class="lede">Nourish and Thrive Foundation expands access to practical, culturally responsive nutrition education that helps communities build knowledge, confidence, and well-being.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Get in Touch</a>
+            <a class="link-quiet" href="#about">Learn about our mission ↓</a>
+          </div>
+        </div>
+        <div class="hero-art reveal">
+          <div class="ring" aria-hidden="true"></div>
+          <picture>
+            <source srcset="assets/logo.webp" type="image/webp">
+            <img src="assets/logo.png" alt="Nourish and Thrive Foundation seal: an open book with a growing plant, fruits, vegetables and grains">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND PROMISE -->
+    <section class="promise-band">
+      <div class="wrap reveal">
+        <span class="eyebrow">Our Brand Promise</span>
+        <blockquote>&ldquo;Knowledge that helps people nourish themselves, their families, and their communities &mdash; with confidence.&rdquo;</blockquote>
+      </div>
+    </section>
+
+    <!-- WHO WE ARE -->
+    <section class="about" id="about">
+      <div class="wrap">
+        <div class="reveal">
+          <span class="eyebrow">Who We Are</span>
+          <h2>Practical, trustworthy nutrition education &mdash; built with communities, not for them.</h2>
+          <p>Nourish and Thrive Foundation exists to make practical, trustworthy nutrition education more accessible, helping communities build the knowledge, skills, and confidence needed to thrive.</p>
+
+          <div class="values-row">
+            <span class="pill">Education</span>
+            <span class="pill">Empowerment</span>
+            <span class="pill">Access</span>
+            <span class="pill">Cultural Respect</span>
+            <span class="pill">Community</span>
+            <span class="pill">Dignity</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="mission-card">
+            <span class="label">Our Mission</span>
+            <p>To educate and empower individuals and communities through accessible, culturally responsive nutrition education and practical resources that support lifelong well-being.</p>
+          </div>
+          <div class="vision-line">
+            <span class="label">Our Vision</span>
+            A future where every community has the knowledge, resources, and opportunity to nourish well and thrive.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PILLARS -->
+    <section class="pillars" id="pillars">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">What We Do</span>
+          <h2>Four commitments guide every program.</h2>
+        </div>
+
+        <div class="pillar-grid">
+          <div class="pillar-card reveal">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.5C4 4.5 7 4 12 5.5c5-1.5 8-1 10 0v13.5c-2-1-5-1.5-10 0-5-1.5-8-1-10 0z"/><path d="M12 5.5v13.5"/></svg>
+            </div>
+            <h3>Educate</h3>
+            <p>Translate credible nutrition information into practical, everyday knowledge.</p>
+          </div>
+
+          <div class="pillar-card reveal">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M12 10C12 6 9 5 7 5c0 3.5 2 5 5 5z"/><path d="M12 13c0-3.5 2.5-5 5.5-5 0 3.8-2.5 5.5-5.5 5.5"/></svg>
+            </div>
+            <h3>Empower</h3>
+            <p>Build skills, autonomy, and confidence &mdash; without shame or rigid rules.</p>
+          </div>
+
+          <div class="pillar-card reveal">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7 12 17 17 7 7 7"/><circle cx="7" cy="7" r="2.1"/><circle cx="17" cy="7" r="2.1"/><circle cx="12" cy="17" r="2.1"/></svg>
+            </div>
+            <h3>Connect</h3>
+            <p>Work through trusted partnerships and responsive community engagement.</p>
+          </div>
+
+          <div class="pillar-card reveal">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12c0-4 3.5-8 8-8s8 4 8 8-3 8-8 8-8-4-8-8z"/><path d="M8 12c1-2 2.5-3 4-3s3 1 4 3"/></svg>
+            </div>
+            <h3>Nourish</h3>
+            <p>Support whole-person and community well-being through accessible action.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GROWING FROM KNOWLEDGE -->
+    <section class="growth" id="growth">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Our Approach</span>
+          <h2>Growing from knowledge.</h2>
+        </div>
+
+        <div class="growth-steps">
+          <div class="growth-step reveal">
+            <div class="stage">
+              <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.5C4 4.5 7 4 12 5.5c5-1.5 8-1 10 0v13.5c-2-1-5-1.5-10 0-5-1.5-8-1-10 0z"/><path d="M12 5.5v13.5"/></svg>
+            </div>
+            <h4>Education</h4>
+            <p>The open book &mdash; credible, practical knowledge, shared plainly.</p>
+          </div>
+          <div class="growth-step reveal">
+            <div class="stage">
+              <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M12 10C12 6 9 5 7 5c0 3.5 2 5 5 5z"/><path d="M12 13c0-3.5 2.5-5 5.5-5 0 3.8-2.5 5.5-5.5 5.5"/></svg>
+            </div>
+            <h4>Empowerment</h4>
+            <p>The sprout &mdash; skills and confidence that take root.</p>
+          </div>
+          <div class="growth-step reveal">
+            <div class="stage">
+              <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16l-1.5 9h-13z"/><path d="M8 10c0-4 1.8-6 4-6s4 2 4 6"/></svg>
+            </div>
+            <h4>Community</h4>
+            <p>The harvest &mdash; well-being shared across the whole community.</p>
+          </div>
+        </div>
+
+        <p class="growth-caption reveal">&ldquo;Education is the open book. Empowerment is the sprout. Community well-being is the harvest.&rdquo;</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="reveal">
+          <span class="eyebrow">Get in Touch</span>
+          <h2>Let&rsquo;s grow something together.</h2>
+          <p style="opacity:.9; max-width:42ch;">Have a question, a partnership idea, or want to bring a program to your community? We&rsquo;d love to hear from you.</p>
+
+          <div class="contact-info">
+            <div>
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:nourishthrive.fdn@gmail.com">nourishthrive.fdn@gmail.com</a>
+              </div>
+            </div>
+            <div>
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L7.9 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6A2 2 0 0 1 22 16.9z"/></svg>
+              <div>
+                <strong>Phone</strong>
+                <a href="tel:+12243600882">(224) 360-0882</a>
+              </div>
+            </div>
+            <div>
+              <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <div>
+                <strong>Location</strong>
+                <span>Serving the communities of Northeastern Illinois and the Chicagoland area</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-card reveal" id="contactForm">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Message</button>
+          <p class="form-note">Submitting opens your email app with this message pre-filled and addressed to us.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <picture>
+            <source srcset="assets/logo.webp" type="image/webp">
+            <img src="assets/logo.png" alt="Nourish and Thrive Foundation logo">
+          </picture>
+          <span>
+            <strong>Nourish and Thrive Foundation</strong>
+            <span>Educate &middot; Empower &middot; Nourish Communities</span>
+          </span>
+        </div>
+        <div class="footer-links">
+          <a href="#about">Our Mission</a>
+          <a href="#pillars">What We Do</a>
+          <a href="#growth">Our Approach</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Nourish and Thrive Foundation. All rights reserved.</span>
+        <span>A nonprofit dedicated to community nutrition education.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const primaryNav = document.getElementById('primaryNav');
+    navToggle.addEventListener('click', () => {
+      const open = primaryNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    primaryNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      primaryNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      revealEls.forEach(el => io.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('is-visible'));
+    }
+
+    // Contact form: opens the visitor's email app with a pre-filled message to the Foundation
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const subject = encodeURIComponent('Message from ' + name + ' via the Nourish and Thrive website');
+      const body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
+      window.location.href = 'mailto:nourishthrive.fdn@gmail.com?subject=' + subject + '&body=' + body;
+    });
+  </script>
+
+</body>
+</html>
